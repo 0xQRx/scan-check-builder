@@ -1,7 +1,7 @@
-package burp;	
+package burp;
 
-import burpbounty.BurpBountyExtension;	
+import burpbounty.BurpBountyExtension;
 
-public class BurpExtender extends BurpBountyExtension {	
-
+public class BurpExtender extends BurpBountyExtension {
+    
 }

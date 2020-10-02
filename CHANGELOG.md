@@ -1,4 +1,13 @@
 ##  Changelog
+**3.5.0 20201001**
+* Fixed bug with Payload and Payload without encode match type 
+* Changed the default directory from user.dir to user.home
+* Added <payload> and <grep> variables for printing issue details in Advisory.
+* Fixed regex grep case sensitive
+* Better redirection performance
+* Fixed bug with Match And Replace
+
+
 **3.4.0 20200621**
 * Fixed bug with delete button on windows systems
 * Fixed bug with Java array

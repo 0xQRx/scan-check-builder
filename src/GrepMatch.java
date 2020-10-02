@@ -78,13 +78,13 @@ public class GrepMatch {
                 try {
                     if (excludeHTTP && !onlyHTTP) {
                         beginAt = responseInfo.getBodyOffset();
-                        p = Pattern.compile(grep);
+                        p = Pattern.compile(grep, Pattern.CASE_INSENSITIVE);
                         m = p.matcher(responseString);
                     } else if (!excludeHTTP && onlyHTTP) {
-                        p = Pattern.compile(grep);
+                        p = Pattern.compile(grep, Pattern.CASE_INSENSITIVE);
                         m = p.matcher(headers);
                     } else {
-                        p = Pattern.compile(grep);
+                        p = Pattern.compile(grep, Pattern.CASE_INSENSITIVE);
                         m = p.matcher(responseString);
                     }
                 } catch (PatternSyntaxException pse) {
@@ -203,7 +203,7 @@ public class GrepMatch {
         List<IScannerInsertionPoint> insertionPoints = new ArrayList();
 
         for (String grep : greps) {
-            String[] tokens = grep.split(",");
+            String[] tokens = grep.split(",",2);
             String value = tokens[1];
             grep = value;
             Boolean vuln = false;
@@ -220,7 +220,7 @@ public class GrepMatch {
             } else if (matchtype == 2) {
                 Matcher matcher;
                 try {
-                    p = Pattern.compile(grep);
+                    p = Pattern.compile(grep, Pattern.CASE_INSENSITIVE);
                 } catch (PatternSyntaxException pse) {
                     callbacks.printError("Grep Macth line 251 Incorrect regex: " + pse.getPattern());
                     return null;
@@ -235,7 +235,7 @@ public class GrepMatch {
                 //Start regex grep
                 int beginAt = 0;
                 try {
-                    p = Pattern.compile(grep);
+                    p = Pattern.compile(grep, Pattern.CASE_INSENSITIVE);
                     m = p.matcher(helpers.bytesToString(requestResponse.getRequest()));
                 } catch (PatternSyntaxException pse) {
                     callbacks.printError("Grep Macth line 251 Incorrect regex: " + pse.getPattern());
