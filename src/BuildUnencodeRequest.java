@@ -12,7 +12,7 @@ public class BuildUnencodeRequest {
         this.helpers = helpers;
     }
 
-    byte[] buildUnencodedRequest(IScannerInsertionPoint iScannerInsertionPoint, byte[] payload, List<Headers> headers) {
+    byte[] buildUnencodedRequest(IScannerInsertionPoint iScannerInsertionPoint, byte[] payload, List<Headers> headers, String bchost) {
         byte[] canary = buildCanary(payload.length);
         byte[] request = iScannerInsertionPoint.buildRequest(canary);
         int canaryPos = findCanary(canary, request);
@@ -29,6 +29,9 @@ public class BuildUnencodeRequest {
                         if (replace.contains("{PAYLOAD}")) {
                             replace = replace.replace("{PAYLOAD}", stringpayload);
                         }
+                        if (replace.contains("{BC}")) {
+                            replace = replace.replace("{BC}", bchost);
+                        }
                         if (headers.get(x).match.isEmpty()) {
                             tempRequest = tempRequest.replace("\r\n\r\n", "\r\n" + replace + "\r\n\r\n");
                         } else {
@@ -37,6 +40,9 @@ public class BuildUnencodeRequest {
                     } else {
                         if (replace.contains("{PAYLOAD}")) {
                             replace = replace.replaceAll("\\{PAYLOAD\\}", stringpayload);
+                        }
+                        if (replace.contains("{BC}")) {
+                            replace = replace.replaceAll("\\{BC\\}", bchost);
                         }
                         if (headers.get(x).match.isEmpty()) {
                             tempRequest = tempRequest.replaceAll("\\r\\n\\r\\n", "\r\n" + replace + "\r\n\r\n");

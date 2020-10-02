@@ -8,26 +8,36 @@
 
 # Burp Bounty - Scan Check Builder (BApp Store)
 
+This Burp Suite extension allows you, in a quick and simple way, to improve the active and passive burpsuite scanner by means of personalized rules through a very intuitive graphical interface. Through an advanced search of patterns and an improvement of the payload to send, we can create our own issue profiles both in the active scanner and in the passive.<br/>
+
 Download releases:
 
 * https://github.com/wagiro/BurpBounty/releases/
 
 
-This Burp Suite extension allows you, in a quick and simple way, to improve the active and passive burpsuite scanner by means of personalized rules through a very intuitive graphical interface. Through an advanced search of patterns and an improvement of the payload to send, we can create our own issue profiles both in the active scanner and in the passive.
 
+<br/>If you need more power, I invite you to try the new <b>Burp Bounty Pro</b>, which gives you more power and automation during your manual pentests.
+
+<br/>More information at: [https://burpbounty.net](https://burpbounty.net) and [Burp Bounty Pro vs Free](https://burpbounty.net/burp-bounty-pro-vs-free/). 
 
 
 ## Usage
 
-* Go to [Usage](https://github.com/wagiro/BurpBounty/wiki/usage) section.
+* Go to [Usage](https://github.com/wagiro/BurpBounty/wiki/usage) section or the slides of [Ekoparty Security Conference](https://burpbounty.net/burp-bounty-ekoparty-2020/).
 
 ## Profiles
 
-* Profiles from [egarme](https://twitter.com/egarme) in [Github](https://github.com/wagiro/BurpBounty/tree/master/profiles/)
-  
-* Profiles from [Gocha](https://twitter.com/GochaOqradze) in their [Github](https://github.com/ghsec/BBProfiles)
+* Thanks to [Six2dez1](https://twitter.com/Six2dez1) for collect all of the Burp Bounty profiles and also share their own. You can find the collection [HERE](https://github.com/wagiro/BurpBounty/tree/master/profiles/)
 
-* Profiles from [Sy3Omda](https://twitter.com/Sy3Omda) in their [Github](https://github.com/Sy3Omda/burp-bounty)
+* Also thanks to: 
+
+	- [Gocha](https://twitter.com/GochaOqradze)
+	- [Sy3Omda](https://twitter.com/Sy3Omda) 
+	- [Syed](https://twitter.com/syed__umar) 
+	- [n00py1](https://twitter.com/n00py1)
+	- [legik](https://github.com/legik)
+
+All of them have contributed by sharing their Burp Bounty profiles
 
 
 ### For example videos please visit our youtube channel:
@@ -43,9 +53,3 @@ This Burp Suite extension allows you, in a quick and simple way, to improve the 
 
 
 <br/>
-
-
-## Donations
-If you like this extension, you can collaborate to continue developing it and improve it faster:
-
-- Paypal - https://paypal.me/Burpbounty

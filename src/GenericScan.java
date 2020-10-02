@@ -155,12 +155,18 @@ public class GenericScan {
                         break;
                     case 3:
                         payloadsEncoded = processPayload(payloads, encoders);
-                        greps = payloadsEncoded;
+                        greps = new ArrayList();
+                        for (String p : payloads) {
+                            greps.add("true,Or," + p);
+                        }
                         payloads = payloadsEncoded;
                         break;
                     case 4:
+                        greps = new ArrayList();
                         payloadsEncoded = processPayload(payloads, encoders);
-                        greps = new ArrayList(payloads);
+                        for (String p : payloads) {
+                            greps.add("true,Or," + p);
+                        }
                         payloads = new ArrayList(payloadsEncoded);
                         break;
                     default:
@@ -171,7 +177,9 @@ public class GenericScan {
 
             } else {
                 if (matchtype == 3) {
-                    greps = payloads;
+                    for (String p : payloads) {
+                        greps.add("true,Or," + p);
+                    }
                 }
             }
 
@@ -182,7 +190,8 @@ public class GenericScan {
                 }
 
                 if (payloadposition == 2) {
-                    payload = insertionPoint.getBaseValue().concat(payload);
+                    String value = insertionPoint.getBaseValue();
+                    payload = value.concat(payload);
                 }
 
                 if (!headers.isEmpty()) {
@@ -212,7 +221,7 @@ public class GenericScan {
 
                     try {
                         startTime = System.currentTimeMillis();
-                        requestResponse = callbacks.makeHttpRequest(httpService, new BuildUnencodeRequest(helpers).buildUnencodedRequest(insertionPoint, helpers.stringToBytes(payload), headers));
+                        requestResponse = callbacks.makeHttpRequest(httpService, new BuildUnencodeRequest(helpers).buildUnencodedRequest(insertionPoint, helpers.stringToBytes(payload), headers, bchost));
                         endTime = System.currentTimeMillis();
                         difference = (endTime - startTime);
                     } catch (Exception ex) {
@@ -230,8 +239,9 @@ public class GenericScan {
                         if (difference >= time * 1000) {
                             matches = new CustomScanIssue(requestResponse.getHttpService(), helpers.analyzeRequest(requestResponse).getUrl(),
                                     new IHttpRequestResponse[]{callbacks.applyMarkers(requestResponse, null, null)},
-                                    "BurpBounty - " + issuename, issuedetail.replace("<grep>", helpers.urlEncode(payload)), issueseverity,
-                                    issueconfidence, remediationdetail, issuebackground, remediationbackground);
+                                    "BurpBounty - " + issuename, issuedetail.replace("<payload>", helpers.urlEncode(payload)), issueseverity,
+                                    issueconfidence, remediationdetail.replace("<payload>", helpers.urlEncode(payload)), issuebackground.replace("<payload>", helpers.urlEncode(payload)),
+                                    remediationbackground.replace("<payload>", helpers.urlEncode(payload)));
                         }
                     }
 
@@ -251,7 +261,7 @@ public class GenericScan {
                     IResponseInfo r;
 
                     try {
-                        requestResponse = callbacks.makeHttpRequest(httpService, new BuildUnencodeRequest(helpers).buildUnencodedRequest(insertionPoint, helpers.stringToBytes(payload), headers));
+                        requestResponse = callbacks.makeHttpRequest(httpService, new BuildUnencodeRequest(helpers).buildUnencodedRequest(insertionPoint, helpers.stringToBytes(payload), headers, bchost));
                     } catch (Exception ex) {
                         break;
                     }
@@ -286,7 +296,8 @@ public class GenericScan {
                             matches = new CustomScanIssue(requestResponse.getHttpService(), helpers.analyzeRequest(requestResponse).getUrl(),
                                     new IHttpRequestResponse[]{callbacks.applyMarkers(requestResponse, requestMarkers, null)},
                                     "BurpBounty - " + issuename, issuedetail.replace("<payload>", helpers.urlEncode(payload)), issueseverity,
-                                    issueconfidence, remediationdetail, issuebackground, remediationbackground);
+                                    issueconfidence, remediationdetail.replace("<payload>", helpers.urlEncode(payload)), issuebackground.replace("<payload>", helpers.urlEncode(payload)),
+                                    remediationbackground.replace("<payload>", helpers.urlEncode(payload)));
                         }
                     }
                     try {
@@ -307,7 +318,7 @@ public class GenericScan {
                     IResponseInfo rbase;
 
                     try {
-                        requestResponse = callbacks.makeHttpRequest(httpService, new BuildUnencodeRequest(helpers).buildUnencodedRequest(insertionPoint, helpers.stringToBytes(payload), headers));
+                        requestResponse = callbacks.makeHttpRequest(httpService, new BuildUnencodeRequest(helpers).buildUnencodedRequest(insertionPoint, helpers.stringToBytes(payload), headers, bchost));
                         r = helpers.analyzeResponse(requestResponse.getResponse());
                         rbase = helpers.analyzeResponse(baseRequestResponse.getResponse());
                     } catch (Exception ex) {
@@ -329,8 +340,9 @@ public class GenericScan {
 
                             matches = new CustomScanIssue(requestResponse.getHttpService(), helpers.analyzeRequest(requestResponse).getUrl(),
                                     new IHttpRequestResponse[]{callbacks.applyMarkers(requestResponse, null, responseMarkers)},
-                                    "BurpBounty - " + issuename, issuedetail.replace("<grep>", helpers.urlEncode(grep)), issueseverity,
-                                    issueconfidence, remediationdetail, issuebackground, remediationbackground);
+                                    "BurpBounty - " + issuename, issuedetail.replace("<payload>", helpers.urlEncode(payload)).replace("<grep>", helpers.urlEncode(grep)), issueseverity,
+                                    issueconfidence, remediationdetail.replace("<payload>", helpers.urlEncode(payload)).replace("<grep>", helpers.urlEncode(grep)), issuebackground.replace("<payload>", helpers.urlEncode(payload)).replace("<grep>", helpers.urlEncode(grep)),
+                                    remediationbackground.replace("<payload>", helpers.urlEncode(payload)).replace("<grep>", helpers.urlEncode(grep)));
                         }
                     }
                     try {
@@ -355,7 +367,7 @@ public class GenericScan {
                         payload = payload.replace("{BC}", bchost);
 
                         try {
-                            requestResponse = callbacks.makeHttpRequest(httpService, new BuildUnencodeRequest(helpers).buildUnencodedRequest(insertionPoint, helpers.stringToBytes(payload), headers));
+                            requestResponse = callbacks.makeHttpRequest(httpService, new BuildUnencodeRequest(helpers).buildUnencodedRequest(insertionPoint, helpers.stringToBytes(payload), headers, bchost));
                             r = helpers.analyzeResponse(requestResponse.getResponse());
                         } catch (Exception ex) {
                             callbacks.printError("GenericScan line 371: " + ex.getMessage());
@@ -364,7 +376,7 @@ public class GenericScan {
 
                         responseCode = new Integer(r.getStatusCode());
 
-                        burpCollaboratorData.setIssueProperties(requestResponse, bchost, issuename, issuedetail, issueseverity, issueconfidence, remediationdetail, issuebackground, remediationbackground);
+                        burpCollaboratorData.setIssueProperties(requestResponse, bchost, issuename, issuedetail.replace("<payload>", helpers.urlEncode(payload)), issueseverity, issueconfidence, remediationdetail.replace("<payload>", helpers.urlEncode(payload)), issuebackground.replace("<payload>", helpers.urlEncode(payload)), remediationbackground.replace("<payload>", helpers.urlEncode(payload)));
 
                         do {
                             if (responseCodes.contains(responseCode) && loop < limitredirect) {
@@ -373,7 +385,7 @@ public class GenericScan {
 
                                 if (url != null) {
                                     byte[] checkRequest = helpers.buildHttpRequest(url);
-                                    checkRequest = getMatchAndReplace(headers, checkRequest, payload);
+                                    checkRequest = getMatchAndReplace(headers, checkRequest, payload, bchost);
                                     int port = 0;
                                     if (url.getPort() == -1) {
                                         port = url.getDefaultPort();
@@ -420,7 +432,7 @@ public class GenericScan {
                         }
 
                         try {
-                            requestResponse = callbacks.makeHttpRequest(httpService, new BuildUnencodeRequest(helpers).buildUnencodedRequest(insertionPoint, helpers.stringToBytes(payload), headers));
+                            requestResponse = callbacks.makeHttpRequest(httpService, new BuildUnencodeRequest(helpers).buildUnencodedRequest(insertionPoint, helpers.stringToBytes(payload), headers, bchost));
                             IHttpRequestResponse redirectRequestResponse = requestResponse;
                             r = helpers.analyzeResponse(redirectRequestResponse.getResponse());
                         } catch (NullPointerException e) {
@@ -455,7 +467,7 @@ public class GenericScan {
 
                                 if (url != null) {
                                     byte[] checkRequest = helpers.buildHttpRequest(url);
-                                    checkRequest = getMatchAndReplace(headers, checkRequest, payload);
+                                    checkRequest = getMatchAndReplace(headers, checkRequest, payload, bchost);
                                     int port = 0;
                                     if (url.getPort() == -1) {
                                         port = url.getDefaultPort();
@@ -577,7 +589,7 @@ public class GenericScan {
 
             for (int x = 0; x < grep_index; x++) {
                 if (!greps_final.get(x).isEmpty()) {
-                    matches = gm.getResponseMatches(baseRequestResponse, "", greps_final.get(x), issuename, issuedetail, issuebackground, remediationdetail, remediationbackground, "", matchtype,
+                    matches = gm.getResponseMatches(baseRequestResponse, "", greps_final.get(x), issuename, issuedetail.replace("<grep>", helpers.urlEncode(greps_final.get(x).toString())), issuebackground.replace("<grep>", helpers.urlEncode(greps_final.get(x).toString())), remediationdetail.replace("<grep>", helpers.urlEncode(greps_final.get(x).toString())), remediationbackground.replace("<grep>", helpers.urlEncode(greps_final.get(x).toString())), "", matchtype,
                             issueseverity, issueconfidence, notresponse, casesensitive, false, excludeHTTP, onlyHTTP);
                 }
 
@@ -651,7 +663,7 @@ public class GenericScan {
 
             for (int x = 0; x < grep_index; x++) {
                 if (!greps_final.get(x).isEmpty()) {
-                    matches = gm.getRequestMatches(baseRequestResponse, greps_final.get(x), issuename, issuedetail, issuebackground, remediationdetail, remediationbackground, matchtype,
+                    matches = gm.getRequestMatches(baseRequestResponse, greps_final.get(x), issuename, issuedetail.replace("<grep>", helpers.urlEncode(greps_final.get(x).toString())), issuebackground.replace("<grep>", helpers.urlEncode(greps_final.get(x).toString())), remediationdetail.replace("<grep>", helpers.urlEncode(greps_final.get(x).toString())), remediationbackground.replace("<grep>", helpers.urlEncode(greps_final.get(x).toString())), matchtype,
                             issueseverity, issueconfidence, casesensitive, notresponse);
 
                     try {
@@ -749,8 +761,9 @@ public class GenericScan {
             } else if (Location.startsWith("/")) {
                 url = new URL(httpService.getProtocol() + "://" + httpService.getHost() + Location);
                 return url;
-            } else {
-                return null;
+            } else{
+                url = new URL(httpService.getProtocol() + "://" + httpService.getHost() + "/" + Location);
+                return url;
             }
 
         } catch (MalformedURLException | NullPointerException | ArrayIndexOutOfBoundsException ex) {
@@ -758,7 +771,7 @@ public class GenericScan {
         }
     }
 
-    public byte[] getMatchAndReplace(List<Headers> headers, byte[] checkRequest, String payload) {
+public byte[] getMatchAndReplace(List<Headers> headers, byte[] checkRequest, String payload, String bchost) {
         String tempRequest = helpers.bytesToString(checkRequest);
 
         if (!headers.isEmpty()) {
@@ -769,6 +782,9 @@ public class GenericScan {
                         if (replace.contains("{PAYLOAD}")) {
                             replace = replace.replace("{PAYLOAD}", payload);
                         }
+                        if (replace.contains("{BC}")) {
+                            replace = replace.replace("{BC}", bchost);
+                        }
                         if (headers.get(x).match.isEmpty()) {
                             tempRequest = tempRequest.replace("\r\n\r\n", "\r\n" + replace + "\r\n\r\n");
                         } else {
@@ -777,6 +793,9 @@ public class GenericScan {
                     } else {
                         if (replace.contains("{PAYLOAD}")) {
                             replace = replace.replaceAll("\\{PAYLOAD\\}", payload);
+                        }
+                        if (replace.contains("{BC}")) {
+                            replace = replace.replaceAll("\\{BC\\}", bchost);
                         }
                         if (headers.get(x).match.isEmpty()) {
                             tempRequest = tempRequest.replaceAll("\\r\\n\\r\\n", "\r\n" + replace + "\r\n\r\n");

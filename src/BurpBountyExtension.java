@@ -35,7 +35,6 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.io.File;
 import java.io.FileReader;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JScrollPane;
@@ -82,7 +81,7 @@ public class BurpBountyExtension implements IBurpExtender, ITab, IScannerCheck, 
             optionsTab.getVerticalScrollBar().setUnitIncrement(20);
             callbacks.addSuiteTab(this);
 
-            callbacks.printOutput("- Burp Bounty v3.4");
+            callbacks.printOutput("- Burp Bounty v3.5");
             callbacks.printOutput("- For bugs please on the official github: https://github.com/wagiro/BurpBounty/");
             callbacks.printOutput("- Created by Eduardo Garcia Melia <wagiro@gmail.com>");
 
@@ -125,7 +124,7 @@ public class BurpBountyExtension implements IBurpExtender, ITab, IScannerCheck, 
     public List<IScannerInsertionPoint> getInsertionPoints(IHttpRequestResponse baseRequestResponse) {
         List<IScannerInsertionPoint> insertionPoints = new ArrayList();
 
-        try{
+        try {
             IRequestInfo request = helpers.analyzeRequest(baseRequestResponse);
 
             if (request.getMethod().equals("GET")) {
@@ -134,7 +133,7 @@ public class BurpBountyExtension implements IBurpExtender, ITab, IScannerCheck, 
                 byte[] req = baseRequestResponse.getRequest();
                 int len = helpers.bytesToString(baseRequestResponse.getRequest()).indexOf("HTTP");
                 int beginAt = 0;
-  
+
                 while (beginAt < len) {
                     beginAt = helpers.indexOf(req, match, false, beginAt, len);
                     if (beginAt == -1) {
@@ -147,7 +146,7 @@ public class BurpBountyExtension implements IBurpExtender, ITab, IScannerCheck, 
                     beginAt += match.length;
                 }
             }
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             return insertionPoints;
         }
         return insertionPoints;
@@ -159,22 +158,23 @@ public class BurpBountyExtension implements IBurpExtender, ITab, IScannerCheck, 
         JsonArray activeprofiles = new JsonArray();
         params = new ArrayList();
 
-        for (int i = 0; i < allprofiles.size(); i++) {
-            Object idata = allprofiles.get(i);
-            issue = gson.fromJson(idata.toString(), ProfilesProperties.class);
-            scanner = issue.getScanner();
+        try {
+            for (int i = 0; i < allprofiles.size(); i++) {
+                Object idata = allprofiles.get(i);
+                issue = gson.fromJson(idata.toString(), ProfilesProperties.class);
+                scanner = issue.getScanner();
 
-            if (scanner == 1 && issue.getEnabled() && issue.getInsertionPointType().contains(insertionPoint.getInsertionPointType() & 0xFF)) {
-                activeprofiles.add(allprofiles.get(i));
+                if (scanner == 1 && issue.getEnabled() && issue.getInsertionPointType().contains(insertionPoint.getInsertionPointType() & 0xFF)) {
+                    activeprofiles.add(allprofiles.get(i));
+                }
+
+            }
+            if (activeprofiles.size() == 0) {
+                return null;
             }
 
-        }
-        if (activeprofiles.size() == 0) {
-            return null;
-        }
+            GenericScan as = new GenericScan(this, callbacks, burpCollaboratorData, panel.getProfilesFilename(), allprofiles);
 
-        GenericScan as = new GenericScan(this, callbacks, burpCollaboratorData, panel.getProfilesFilename(), allprofiles);
-        try {
             IBurpCollaboratorClientContext CollaboratorClientContext2 = callbacks.createBurpCollaboratorClientContext();
             burpCollaboratorData.setCollaboratorClientContext(CollaboratorClientContext2);
             String bchost = CollaboratorClientContext2.generatePayload(true);
@@ -192,7 +192,6 @@ public class BurpBountyExtension implements IBurpExtender, ITab, IScannerCheck, 
         JsonArray passivereqprofiles = new JsonArray();
         List<IScanIssue> issues = new ArrayList();
 
-        
         for (int i = 0; i < allprofiles.size(); i++) {
             Object idata = allprofiles.get(i);
             issue = gson.fromJson(idata.toString(), ProfilesProperties.class);
