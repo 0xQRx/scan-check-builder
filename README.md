@@ -1,12 +1,13 @@
 
 [![GitHub release](https://img.shields.io/github/release/wagiro/BurpBounty.svg)](https://github.com/wagiro/BurpBounty/releases) 
 [![GitHub issues](https://img.shields.io/github/issues/wagiro/BurpBounty.svg)](https://github.com/wagiro/BurpBounty/issues) 
+[![GitHub Downloads](https://img.shields.io/github/downloads/wagiro/BurpBounty/total.svg)]() 
 [![Github Stars](https://img.shields.io/github/stars/wagiro/BurpBounty.svg?style=social&label=Stars)](https://github.com/wagiro/BurpBounty/) 
 [![GitHub Followers](https://img.shields.io/github/followers/wagiro.svg?style=social&label=Follow)](https://github.com/wagiro/BurpBounty/)
-[![Follow on Twitter](https://img.shields.io/twitter/follow/bountyburp.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=burpbounty)
+[![Follow on Twitter](https://img.shields.io/twitter/follow/burpbounty.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=burpbounty)
 
 
-# Burp Bounty - Scan Check Builder (BApp Store)
+# Burp Bounty Free - Scan Check Builder (BApp Store)
 
 This Burp Suite extension allows you, in a quick and simple way, to improve the active and passive burpsuite scanner by means of personalized rules through a very intuitive graphical interface. Through an advanced search of patterns and an improvement of the payload to send, we can create our own issue profiles both in the active scanner and in the passive.<br/>
 
@@ -31,6 +32,7 @@ Download releases:
 
 * Also thanks to: 
 
+	- [Xer0Days](https://twitter.com/Xer0Days)
 	- [Gocha](https://twitter.com/GochaOqradze)
 	- [Sy3Omda](https://twitter.com/Sy3Omda) 
 	- [Syed](https://twitter.com/syed__umar) 
