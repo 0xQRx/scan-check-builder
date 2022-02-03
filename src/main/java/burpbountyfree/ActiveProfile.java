@@ -874,6 +874,7 @@ public class ActiveProfile extends javax.swing.JPanel {
 
         jLabel11.setText("Insertion point type:");
 
+        jLabel17.putClientProperty("html.disable", null);
         jLabel17.setText("<html> * More info at <a href=\\\"\\\">Burp Suite Extender API</a></html>");
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

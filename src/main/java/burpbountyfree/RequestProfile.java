@@ -528,6 +528,7 @@ public class RequestProfile extends javax.swing.JPanel {
 
         jLabel1.setText("Match Type: ");
 
+        jLabel5.putClientProperty("html.disable", null);
         jLabel5.setText("<html> * More info about insertion points at <a href=\\\\\\\"\\\\\\\">Burp Suite Extender API</a></html>");
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

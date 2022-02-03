@@ -1559,6 +1559,7 @@ public class BurpBountyGui extends javax.swing.JPanel {
         jLabel57.setText("About Pro.");
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel12.putClientProperty("html.disable", null);
         jLabel12.setText("<html><p style=\"text-align: justify;\"> Burp Bounty Pro is a Burp Suite Pro extension that improves the active and passive scanner by means of advanced and customized vulnerability profiles through a very intuitive graphical interface.  <br><br> On the one hand, it acts as a the most advanced and flexible web application vulnerability scanner, being able to add your own vulnerability profiles, or add your own custom payloads/requests to the existing vulnerability profiles.  <br><br> On the other hand, it can simulate a manual pentest in search of maximum efficiency, without making unnecessary requests, it scans the targets only for those potentially vulnerable parameters, with the most effective payloads.   <br><br> Finally, this extension also helps you by collecting valuable information when performing the manual pentest, such as possible vulnerable parameters, versions detection and more.</p></html>");
         jLabel12.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
@@ -1572,11 +1573,14 @@ public class BurpBountyGui extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(229, 99, 58));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel7.putClientProperty("html.disable", null);
         jLabel7.setText("<html>Ride First<br> on Bug Hunting.</html>");
 
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo_free.png"))); // NOI18N
 
+
+        jLabel24.putClientProperty("html.disable", null);
         jLabel24.setText("<html><a href=\\\"\\\">EULA</a></html>");
         jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1585,6 +1589,7 @@ public class BurpBountyGui extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel1.putClientProperty("html.disable", null);
         jLabel1.setText("<html><p style=\"text-align: justify;\"> Burp Bounty Free is a Burp Suite extension that allows you, in a quick and simple way, to improve the active and passive Burp Suite scanner by means of personalized profiles through a very intuitive graphical interface. Through an advanced search of patterns and an improvement of the payload to send, we can create our own issue profiles both in the active scanner and in the passive.</p></html>");
 
         jLabel58.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
@@ -1592,10 +1597,12 @@ public class BurpBountyGui extends javax.swing.JPanel {
         jLabel58.setText("About Free.");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel3.putClientProperty("html.disable", null);
         jLabel3.setText("<html><p style=\"text-align: justify;\">If you need more power, I invite you to try the new Burp Bounty Pro, which gives you more power and automation during your manual pentests.</p></html>");
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 78, 112));
+        jLabel10.putClientProperty("html.disable", null);
         jLabel10.setText("<html>More information at: <a href=\\\"\\\">https://burpbounty.net</a></html>");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
