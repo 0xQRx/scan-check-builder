@@ -2,7 +2,7 @@
   {
     "ProfileName": "Linux-php.ini",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 1,
     "Author": "@Sy3Omda",
     "Payloads": [

@@ -2,7 +2,7 @@
   {
     "ProfileName": "Linux-Apache2-conf",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 1,
     "Author": "@Sy3Omda",
     "Payloads": [

@@ -2,7 +2,7 @@
   {
     "ProfileName": "X-Headers-Collaborator-combined",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 1,
     "Author": "@Sy3Omda",
     "Payloads": [

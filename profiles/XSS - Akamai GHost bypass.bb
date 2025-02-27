@@ -2,7 +2,7 @@
   {
     "ProfileName": "XSS - Akamai GHost bypass",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 1,
     "Author": "@egarme",
     "Payloads": [

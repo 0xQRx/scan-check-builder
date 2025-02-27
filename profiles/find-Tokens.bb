@@ -1,22 +1,22 @@
 [
   {
-    "ProfileName": "OpenRedirectActive",
+    "ProfileName": "find-Tokens",
     "Name": "",
-    "Enabled": false,
-    "Scanner": 1,
-    "Author": "@GochaOqradze",
-    "Payloads": [
-      "true,redirectx"
-    ],
+    "Enabled": true,
+    "Scanner": 2,
+    "Author": "@ayadi0x1",
+    "Payloads": [],
     "Encoder": [],
     "UrlEncode": false,
     "CharsToUrlEncode": "",
     "Grep": [
-      "true,,\u003cmeta http-equiv\u003d\"refresh\".*redirectx\" /\u003e",
-      "true,Or,window\\.location.*redirectx",
-      "true,Or,Location:.*redirectx"
+      "true,,(?i)(([a-z0-9]+)[-|_])?(key|password|passwd|pass|pwd|private|credential|auth|cred|creds|secret|access|token)([-|_][a-z]+)?(\\s)*(:|\u003d)+"
     ],
     "Tags": [
+      "token",
+      "API",
+      "regex",
+      "InformationDisclosure",
       "All"
     ],
     "PayloadResponse": false,
@@ -27,7 +27,7 @@
     "contentLength": "",
     "iscontentLength": false,
     "CaseSensitive": false,
-    "ExcludeHTTP": false,
+    "ExcludeHTTP": true,
     "OnlyHTTP": false,
     "IsContentType": false,
     "ContentType": "",
@@ -43,28 +43,19 @@
     "Scope": 0,
     "RedirType": 0,
     "MaxRedir": 0,
-    "payloadPosition": 1,
+    "payloadPosition": 0,
     "payloadsFile": "",
     "grepsFile": "",
-    "IssueName": "",
-    "IssueSeverity": "",
-    "IssueConfidence": "",
-    "IssueDetail": "",
+    "IssueName": "Token Founded",
+    "IssueSeverity": "Medium",
+    "IssueConfidence": "Firm",
+    "IssueDetail": "api key - secrets - leaks founded ",
     "RemediationDetail": "",
     "IssueBackground": "",
     "RemediationBackground": "",
     "Header": [],
     "VariationAttributes": [],
-    "InsertionPointType": [
-      65,
-      36,
-      1,
-      6,
-      5,
-      64,
-      0,
-      3
-    ],
+    "InsertionPointType": [],
     "Scanas": false,
     "Scantype": 0,
     "pathDiscovery": false

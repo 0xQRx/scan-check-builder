@@ -2,7 +2,7 @@
   {
     "ProfileName": "SQLi-Error-SQLmap",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 1,
     "Author": "@GochaOqradze",
     "Payloads": [

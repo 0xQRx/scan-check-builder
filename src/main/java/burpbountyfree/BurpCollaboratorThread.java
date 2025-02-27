@@ -99,7 +99,7 @@ public class BurpCollaboratorThread extends Thread {
 
     public void addIssue(IBurpCollaboratorClientContext cc, IBurpCollaboratorInteraction interactions) {
         String interaction_id = interactions.getProperty("interaction_id");
-        String bchost = interaction_id + ".burpcollaborator.net";
+        String bchost = interaction_id + ".oastify.com";
         String type = interactions.getProperty("type");
         String client_ip = interactions.getProperty("client_ip");
         String time_stamp = interactions.getProperty("time_stamp");

@@ -2,7 +2,7 @@
   {
     "ProfileName": "Linux-self-environ",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 1,
     "Author": "@Sy3Omda",
     "Payloads": [

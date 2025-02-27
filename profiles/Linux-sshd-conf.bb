@@ -2,7 +2,7 @@
   {
     "ProfileName": "Linux-sshd-conf",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 1,
     "Author": "@Sy3Omda",
     "Payloads": [
