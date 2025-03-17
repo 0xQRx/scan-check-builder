@@ -2,7 +2,7 @@
   {
     "ProfileName": "Basic_Auth_Credentials",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@six2dez1",
     "Payloads": [],

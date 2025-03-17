@@ -2,7 +2,7 @@
   {
     "ProfileName": "EndpointsExtractor",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@GochaOqradze",
     "Payloads": [],

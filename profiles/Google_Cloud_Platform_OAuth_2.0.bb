@@ -2,7 +2,7 @@
   {
     "ProfileName": "Google_Cloud_Platform_OAuth_2.0",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@six2dez1",
     "Payloads": [],

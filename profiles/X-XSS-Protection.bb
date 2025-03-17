@@ -2,7 +2,7 @@
   {
     "ProfileName": "X-XSS-Protection",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@egarme",
     "Payloads": [],

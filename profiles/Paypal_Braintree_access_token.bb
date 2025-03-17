@@ -2,7 +2,7 @@
   {
     "ProfileName": "Paypal_Braintree_access_token",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@six2dez1",
     "Payloads": [],

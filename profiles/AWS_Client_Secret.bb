@@ -2,7 +2,7 @@
   {
     "ProfileName": "AWS_Client_Secret",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@six2dez1",
     "Payloads": [],

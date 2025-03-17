@@ -2,7 +2,7 @@
   {
     "ProfileName": "Artifactory_Password",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@six2dez1",
     "Payloads": [],

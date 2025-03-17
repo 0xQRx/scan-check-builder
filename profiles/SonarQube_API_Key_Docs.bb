@@ -2,7 +2,7 @@
   {
     "ProfileName": "SonarQube_API_Key_Docs",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@six2dez1",
     "Payloads": [],

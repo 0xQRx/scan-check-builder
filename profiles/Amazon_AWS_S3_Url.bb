@@ -2,7 +2,7 @@
   {
     "ProfileName": "Amazon_AWS_S3_Url",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@six2dez1",
     "Payloads": [],

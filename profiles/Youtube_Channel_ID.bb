@@ -2,7 +2,7 @@
   {
     "ProfileName": "Youtube_Channel_ID",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@six2dez1",
     "Payloads": [],

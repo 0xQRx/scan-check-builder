@@ -2,7 +2,7 @@
   {
     "ProfileName": "BlindSQLi - Generic - TimeBased",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 1,
     "Author": "@egarme",
     "Payloads": [

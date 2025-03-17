@@ -2,7 +2,7 @@
   {
     "ProfileName": "find-Tokens",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@ayadi0x1",
     "Payloads": [],

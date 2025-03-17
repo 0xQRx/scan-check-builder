@@ -2,7 +2,7 @@
   {
     "ProfileName": "SQL_Message_Detected",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@six2dez1",
     "Payloads": [],

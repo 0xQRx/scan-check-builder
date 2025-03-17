@@ -2,7 +2,7 @@
   {
     "ProfileName": "Amazon_MWS_Auth_Token",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 2,
     "Author": "@six2dez1",
     "Payloads": [],
