@@ -2,7 +2,7 @@
   {
     "ProfileName": "GraphqlPath",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 3,
     "Author": "@Sy3Omda",
     "Payloads": [],

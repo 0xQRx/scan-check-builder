@@ -2,7 +2,7 @@
   {
     "ProfileName": "JoomlaSQLi-com_artforms",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 3,
     "Author": "@egarme",
     "Payloads": [],

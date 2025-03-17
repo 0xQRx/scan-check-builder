@@ -2,7 +2,7 @@
   {
     "ProfileName": "SSRF-Collaborator",
     "Name": "",
-    "Enabled": false,
+    "Enabled": true,
     "Scanner": 1,
     "Author": "@egarme",
     "Payloads": [
@@ -10,7 +10,9 @@
       "true,dict://{BC}",
       "true,sftp://{BC}",
       "true,ldap://{BC}",
-      "true,gopher://{BC}"
+      "true,gopher://{BC}",
+      "true,//{BC}",
+      "true,https://{BC}"
     ],
     "Encoder": [
       " "

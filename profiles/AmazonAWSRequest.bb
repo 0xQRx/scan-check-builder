@@ -2,7 +2,7 @@
   {
     "ProfileName": "AmazonAWSRequest",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 3,
     "Author": "@egarme",
     "Payloads": [],

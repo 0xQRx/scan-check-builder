@@ -1,6 +1,6 @@
 [
   {
-    "ProfileName": "BlindRCE - sleep",
+    "ProfileName": "BlindRCE - Sleep",
     "Name": "",
     "Enabled": true,
     "Scanner": 1,

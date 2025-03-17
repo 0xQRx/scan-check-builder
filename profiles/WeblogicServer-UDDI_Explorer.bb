@@ -2,7 +2,7 @@
   {
     "ProfileName": "WeblogicServer-UDDI_Explorer",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 3,
     "Author": "@egarme",
     "Payloads": [],

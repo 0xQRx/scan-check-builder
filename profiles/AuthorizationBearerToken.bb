@@ -2,7 +2,7 @@
   {
     "ProfileName": "AuthorizationBearerToken",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 3,
     "Author": "@egarme",
     "Payloads": [],
