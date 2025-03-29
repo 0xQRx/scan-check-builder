@@ -2,7 +2,7 @@
   {
     "ProfileName": "BlindSQLi - PostgreSQL - TimeBased",
     "Name": "",
-    "Enabled": false,
+    "Enabled": true,
     "Scanner": 1,
     "Author": "@egarme",
     "Payloads": [

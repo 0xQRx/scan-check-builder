@@ -2,7 +2,7 @@
   {
     "ProfileName": "SSTI - Multiply",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 1,
     "Author": "",
     "Payloads": [

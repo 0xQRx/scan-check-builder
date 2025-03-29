@@ -2,7 +2,7 @@
   {
     "ProfileName": "SSTI - Outbound",
     "Name": "",
-    "Enabled": true,
+    "Enabled": false,
     "Scanner": 1,
     "Author": "",
     "Payloads": [

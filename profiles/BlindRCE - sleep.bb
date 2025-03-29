@@ -2,7 +2,7 @@
   {
     "ProfileName": "BlindRCE - Sleep",
     "Name": "",
-    "Enabled": false,
+    "Enabled": true,
     "Scanner": 1,
     "Author": "@egarme",
     "Payloads": [

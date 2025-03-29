@@ -2,7 +2,7 @@
   {
     "ProfileName": "BlindSQLi - MySQL - TimeBased",
     "Name": "",
-    "Enabled": false,
+    "Enabled": true,
     "Scanner": 1,
     "Author": "@egarme",
     "Payloads": [
