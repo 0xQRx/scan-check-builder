@@ -41,8 +41,8 @@
     "Encoder": [
       "URL-encode key characters"
     ],
-    "UrlEncode": false,
-    "CharsToUrlEncode": "",
+    "UrlEncode": true,
+    "CharsToUrlEncode": "#",
     "Grep": [],
     "Tags": [
       "SQLi",
