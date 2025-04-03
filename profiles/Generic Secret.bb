@@ -1,6 +1,6 @@
 [
   {
-    "ProfileName": "AWS - Identity Pool Id",
+    "ProfileName": "Generic Secret",
     "Name": "",
     "Enabled": true,
     "Scanner": 2,
@@ -10,7 +10,9 @@
     "UrlEncode": false,
     "CharsToUrlEncode": "",
     "Grep": [
-      "true,,(us(-gov)?|ap|ca|cn|eu|sa)-(central|(north|south)?(east|west)?)-\\d:[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+      "true,,\\\\\\\"(?:[A-Za-z]+)Secret\\\\\\\":\\\\\\\"([A-Za-z0-9_-]+)\\\\\\\"",
+      "true,Or,\"(?:[A-Za-z]+)Secret\":\"([A-Za-z0-9_-]+)\"",
+      "true,Or,(?:[A-Za-z]+)Secret:\"([A-Za-z0-9_-]+)\""
     ],
     "Tags": [
       "All"
@@ -36,16 +38,16 @@
     "isurlextension": false,
     "NegativeUrlExtension": false,
     "MatchType": 2,
-    "Scope": 2,
+    "Scope": 0,
     "RedirType": 0,
     "MaxRedir": 0,
     "payloadPosition": 0,
     "payloadsFile": "",
     "grepsFile": "",
-    "IssueName": "AWS - Identity Pool Id",
+    "IssueName": "Generic Secret",
     "IssueSeverity": "High",
-    "IssueConfidence": "Certain",
-    "IssueDetail": "Identity pools serve a crucial role by enabling your users to acquire temporary credentials. These credentials are essential for accessing various AWS services, including but not limited to Amazon S3 and DynamoDB. A notable feature of identity pools is their support for both anonymous guest users and a range of identity providers for user authentication. \n\nExploitation examples:\nhttps://cloud.hacktricks.wiki/en/pentesting-cloud/aws-security/aws-services/aws-cognito-enum/cognito-identity-pools.html#accessing-iam-roles",
+    "IssueConfidence": "Firm",
+    "IssueDetail": "",
     "RemediationDetail": "",
     "IssueBackground": "",
     "RemediationBackground": "",
